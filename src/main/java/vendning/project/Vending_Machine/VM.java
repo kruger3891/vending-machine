@@ -2,20 +2,18 @@ package vendning.project.Vending_Machine;
 
 import java.util.Scanner;
 
-public class App {
+public class VM {
 
 	public static Scanner sc = new Scanner(System.in);
 	public static inputNumberScann scann = new inputNumberScann();
 	private static Product[] productList;
-	private static int[] moneyArray;
+	private static int[] moneyArray = { 10, 20, 50, 100, 300, 500, 1000};
 	private static String buyAgain;
+	private int save = 0;
 
-	public static void main(String[] args) {
-
-		sc = new Scanner(System.in);
+	public void run() {
 
 		setProducta();
-		setMoney();
 		boolean start = true;
 		while (start) {
 
@@ -25,12 +23,13 @@ public class App {
 			System.out.println("===   	  Pleas Enter the namber  	 ===");
 			System.out.println("============================================");
 			System.out.println("===   Choice of money you want to put    ===");
-			moneyList();
 			
-			int moneyIndex = scann.input(1, 7);
+			moneyList();
 
+			int moneyIndex = scann.input(1, 7);
+			save = moneyArray[moneyIndex - 1];
 			System.out.println("======================");
-			System.out.println(" You money is " + moneyArray[moneyIndex - 1] + ": SEK");
+			System.out.println(" You money is " + save + ": SEK");
 			System.out.println("======================\n");
 			System.out.println("=========================");
 			System.out.println("What do you want to buy\n\n1 - Fruit:\n2 - Confection:\n3 - Juice:\n4 - Phone:");
@@ -67,27 +66,36 @@ public class App {
 			boolean b = true, s = false;
 			while (b) {
 				do {
-					if (moneyArray[moneyIndex - 1] <= productList[productIndex - 1].price) {
-						System.out.println("\nNot enough money\n");
-						System.out.println("Take it your money back " + moneyArray[moneyIndex - 1] + ": SEK\n");
-						System.out.println("And Put in another money");
+					if (save <= productList[productIndex - 1].price) {
+						System.out.println("=====================");
+						System.out.println("\nNot enough money !!!\n");
+						System.out.println("=====================");						
+						System.out.println("And Put more money");
 						moneyList();
 						moneyIndex = scann.input(1, 7);
-						System.out.println(" You money is " + moneyArray[moneyIndex - 1]);
+						save += moneyArray[moneyIndex - 1];
+						System.out.println(" You money is " + save);
 
 						b = true;
 						start = true;
 
 					} else {
-						double andChange = moneyArray[moneyIndex - 1] - productList[productIndex - 1].price;
-						System.out.println(" \nYou chanege is " + andChange + ": SEK\n");
+						double Change = save - productList[productIndex - 1].price;
+						System.out.println(" \nYou chanege is " + Change + ": SEK\n");
 						s = true;
 					}
 
 				} while (!s);
+				
+				System.out.println("Use your product(y/n)?");
+				buyAgain = sc.next().toLowerCase();
+				if (buyAgain.equals("y")) {
+					productList[productIndex - 1].toUse();
+				} 
+				
 				System.out.println("Do you want buy again (y/n)?");
-
 				start = false;
+				
 				buyAgain = sc.next().toLowerCase();
 				if (buyAgain.equals("y")) {
 					b = false;
@@ -100,60 +108,55 @@ public class App {
 
 		}
 
-		
-		
 	}
 
 	private static void getFruits() {
 		for (int i = 1; i < productList.length + 1; i++) {
 			if (productList[i - 1] instanceof Fruit) {
-				System.out.println("\n" + i + " - Fruit ");
+				System.out.println("\n=======================\n" + i + " - Fruit ");
 				productList[i - 1].Info();
 			}
 		}
 	}
 
 	private static void getConfection() {
-		for(int i = 1; i < productList.length +1; i++) {
-			if(productList[i-1]instanceof Confection) {
-				System.out.println("\n"+ i + " - Confection ");
-				productList[i-1].Info();
+		for (int i = 1; i < productList.length + 1; i++) {
+			if (productList[i - 1] instanceof Confection) {
+				System.out.println("\n====================\n" + i + " - Confection ");
+				productList[i - 1].Info();
 			}
 		}
 
 	}
 
 	private static void getJuice() {
-		for(int i = 1; i< productList.length + 1; i++) {
-			if(productList[i-1]instanceof Juice) {
-				System.out.println("\n" + i + " - Juice ");
-				productList[i-1].Info();
+		for (int i = 1; i < productList.length + 1; i++) {
+			if (productList[i - 1] instanceof Juice) {
+				System.out.println("\n====================\n" + i + " - Juice ");
+				productList[i - 1].Info();
 			}
 		}
 
 	}
 
 	private static void getPhone() {
-		for(int i=1; i<productList.length +1; i++) {
-			if(productList[i-1]instanceof Phone) {
-				System.out.println("\n" + i+ " - Phone ");
-				productList[i-1].Info();
+		for (int i = 1; i < productList.length + 1; i++) {
+			if (productList[i - 1] instanceof Phone) {
+				System.out.println("\n====================\n" + i + " - Phone");
+				productList[i - 1].Info();
 			}
 		}
 
 	}
 
 	private static void moneyList() {
-		for (int i = 1; i < moneyArray.length + 1; i++) {
-			System.out.println("\n " + i + " - " + moneyArray[i - 1] + ": SEK");
+		for (int i = 1; i < moneyArray.length+1; i++) {
+			System.out.println("\n ========= " + i + " - " + moneyArray[i - 1] + ": SEK =========");
 		}
 
 	}
 
-	private static void setMoney() {
-		int[] coins = { 10, 30, 50, 100, 300, 500, 1000 };
-		moneyArray = coins;
-	}
+	
 
 	private static void setProducta() {
 

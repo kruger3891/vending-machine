@@ -12,6 +12,48 @@ public abstract class Product {
 		section = Section.Other;
 	}
 	
+	
+	
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+	public double getPrice() {
+		return price;
+	}
+
+
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+
+
+	public Section getSection() {
+		return section;
+	}
+
+
+
+	public void setSection(Section section) {
+		this.section = section;
+	}
+
+
+
 	public abstract void Info();
+	
+	public abstract void toUse();
+	
+	
 
 }

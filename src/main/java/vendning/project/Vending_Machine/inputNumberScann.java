@@ -4,10 +4,6 @@ import java.util.Scanner;
 public class inputNumberScann {
 	
 Scanner sc = new Scanner(System.in);
-
-	public int input() {
-		return input();
-	}
 	
 	public int input(int startPosition, int endPosition) {
 		int number = 0;

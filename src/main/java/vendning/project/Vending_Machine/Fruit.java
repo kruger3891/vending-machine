@@ -10,11 +10,17 @@ public class Fruit extends Product {
 	public void Info() {
 		System.out.println("\n Section " + section + "\n Name " + name + "\n Price " + price);
 	}
+
+	@Override
+	public void toUse() {
+		System.out.println("You eat " + getName() + ".\n");
+		
+	}
 }
 
 class Confection extends Product {
 
-	public Confection(String Name, double Price, Section Confection) {
+	public Confection(String Name, Double Price, Section Confection) {
 		super(Name, Price);
 		this.section = Section.Confection;
 	}
@@ -22,6 +28,11 @@ class Confection extends Product {
 	public void Info() {
 		System.out.println("\n Section " + section + "\n Name " + name + "\n Price " + price + ": SEK");
 
+	}
+
+	@Override
+	public void toUse() {
+		System.out.println("You eat " + getName() + ".\n");
 	}
 }
 
@@ -36,6 +47,12 @@ class Phone extends Product {
 		System.out.println("\n Section " + section + "\n Name " + name + "\n Price " + price + ": SEK");
 
 	}
+
+	@Override
+	public void toUse() {
+		System.out.println("You call with your " + getName() + ".\n");
+		
+	}
 }
 
 class Juice extends Product {
@@ -47,6 +64,12 @@ class Juice extends Product {
 
 	public void Info() {
 		System.out.println("\n Section " + section + "\n Name " + name + "\n Price " + price + ": SEK");
+	}
+
+	@Override
+	public void toUse() {
+		System.out.println("You drink a " + getName() + ".\n");
+		
 	}
 
 }
