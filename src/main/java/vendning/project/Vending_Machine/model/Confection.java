@@ -1,11 +1,12 @@
-package vendning.project.Vending_Machine.Model;
+package vendning.project.Vending_Machine.model;
 
 import vendning.project.Vending_Machine.util.Section;
 
 public class Confection extends Product{
 
-	public Confection(String Name, int Price, Section Confection) {
-		super(Name, Price,Confection);
+	
+	public Confection(String name, int price, Section section) {
+		super(name, price, section);
 	}
 
 	public void Info() {

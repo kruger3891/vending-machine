@@ -1,10 +1,10 @@
 package vendning.project.Vending_Machine.service;
 
-import vendning.project.Vending_Machine.Model.Confection;
-import vendning.project.Vending_Machine.Model.Fruit;
-import vendning.project.Vending_Machine.Model.Juice;
-import vendning.project.Vending_Machine.Model.Phone;
-import vendning.project.Vending_Machine.Model.Product;
+import vendning.project.Vending_Machine.model.Confection;
+import vendning.project.Vending_Machine.model.Fruit;
+import vendning.project.Vending_Machine.model.Juice;
+import vendning.project.Vending_Machine.model.Phone;
+import vendning.project.Vending_Machine.model.Product;
 import vendning.project.Vending_Machine.util.Section;
 
 public class Vending_MachineImpl implements V_M{
@@ -128,11 +128,6 @@ public class Vending_MachineImpl implements V_M{
 	}
 
 
-	public static int[] Change() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 	
 
 }

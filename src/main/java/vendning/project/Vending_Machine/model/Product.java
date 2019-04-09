@@ -1,4 +1,4 @@
-package vendning.project.Vending_Machine.Model;
+package vendning.project.Vending_Machine.model;
 
 import vendning.project.Vending_Machine.util.Section;
 
@@ -8,10 +8,10 @@ public abstract class Product {
 	private int price;
 	private Section section;
 
-	public Product(String Name, int Price, Section Section) {
-		name = Name;
-		price = Price;
-		section = Section;
+	public Product(String name, int price, Section section) {
+		this.name = name;
+		this.price = price;
+		this.section = section;
 	}
 
 	public String getName() {

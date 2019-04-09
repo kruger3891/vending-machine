@@ -56,7 +56,7 @@ public class UserInterface {
 				break;
 			}
 
-			System.out.println("Value number of product ");
+			System.out.println("\nValue number of product ");
 			int productIndex = scann.input(1, 22);
 
 			System.out.println(" Selected " + vm.getProductList()[productIndex - 1].getName() + " : "
@@ -69,7 +69,7 @@ public class UserInterface {
 						System.out.println("=====================");
 						System.out.println("\nNot enough money !!!\n");
 						System.out.println("=====================");						
-						System.out.println("And Put more money");
+						System.out.println("Put more money");
 						vm.showMoneyList();
 						moneyIndex = scann.input(1, 7);
 						vm.setSave(vm.getSave() + vm.getMoneyArray()[moneyIndex - 1]);
@@ -90,7 +90,9 @@ public class UserInterface {
 				
 				if (sc.next().toLowerCase().equals("y")) {
 					vm.getProductList()[productIndex - 1].toUse();
-				} 
+				}else {
+					System.out.println("Then you put "+vm.getProductList()[productIndex - 1].getName()+" in the bag");
+				}
 				
 				System.out.println("Do you want buy again (y/n)?");
 				start = false;

@@ -1,11 +1,11 @@
-package vendning.project.Vending_Machine.Model;
+package vendning.project.Vending_Machine.model;
 
 import vendning.project.Vending_Machine.util.Section;
 
-public class Phone extends Product{
+public class Juice extends Product{
 	
-	public Phone(String Name, int Price, Section Phone) {
-		super(Name, Price,Phone);
+	public Juice(String name, int price, Section section) {
+		super(name, price, section);
 	}
 
 	public void Info() {
@@ -15,7 +15,7 @@ public class Phone extends Product{
 	
 	@Override
 	public void toUse() {
-		System.out.println("You call with your " + getName() + ".\n");
+		System.out.println("You drink a " + getName() + ".\n");
 		
 	}
 

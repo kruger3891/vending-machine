@@ -1,6 +1,6 @@
 package vendning.project.Vending_Machine.service;
 
-import vendning.project.Vending_Machine.Model.Product;
+import vendning.project.Vending_Machine.model.Product;
 
 public interface V_M {
 
