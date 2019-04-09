@@ -1,4 +1,4 @@
-package vendning.project.Vending_Machine;
+package vendning.project.Vending_Machine.util;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 public class inputNumberScann {

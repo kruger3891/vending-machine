@@ -1,10 +1,10 @@
-package vendning.project.Vending_Machine;
+package vendning.project.Vending_Machine.util;
 
 public enum Section {
 		
 		Confection,
 		Juice,
 		Fruit,
-		Phone,
-		Other;
+		Phone;
+		
 }

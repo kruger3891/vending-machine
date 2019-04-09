@@ -1,6 +1,8 @@
-package vendning.project.Vending_Machine;
+package vendning.project.Vending_Machine.service;
 
 import java.util.Scanner;
+
+import vendning.project.Vending_Machine.util.inputNumberScann;
 
 public class UserInterface {
 	
@@ -57,13 +59,13 @@ public class UserInterface {
 			System.out.println("Value number of product ");
 			int productIndex = scann.input(1, 22);
 
-			System.out.println(" Selected " + vm.getProductList()[productIndex - 1].name + " : "
-					+ vm.getProductList()[productIndex - 1].price + ": SEK");
+			System.out.println(" Selected " + vm.getProductList()[productIndex - 1].getName() + " : "
+					+ vm.getProductList()[productIndex - 1].getPrice() + ": SEK");
 
 			boolean b = true, s = false;
 			while (b) {
 				do {
-					if (vm.getSave() <= vm.getProductList()[productIndex - 1].price) {
+					if (vm.getSave() <= vm.getProductList()[productIndex - 1].getPrice()) {
 						System.out.println("=====================");
 						System.out.println("\nNot enough money !!!\n");
 						System.out.println("=====================");						
@@ -77,7 +79,7 @@ public class UserInterface {
 						start = true;
 
 					} else {
-						double Change = vm.getSave() - vm.getProductList()[productIndex - 1].price;
+						double Change = vm.getSave() - vm.getProductList()[productIndex - 1].getPrice();
 						System.out.println(" \nYou chanege is " + Change + ": SEK\n");
 						s = true;
 					}
